@@ -1,0 +1,17 @@
+.classed {
+    background-color: rgb(228, 61, 117);
+}
+
+#one {
+    color: blue;
+    font-size: 28px;
+}
+
+#two {
+    background-color: limegreen;
+    font-size: 20px;
+}
+
+#cooler {
+    font-size: 20px;
+}
