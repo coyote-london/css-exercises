@@ -1,0 +1,10 @@
+.BlackButton {
+    background-color: black;
+    color: white;
+    font-size: 32px;
+}
+
+.YellowButton {
+    background-color: yellow;
+    font-size: 32px;
+}
