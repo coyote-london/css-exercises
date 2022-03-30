@@ -1,0 +1,55 @@
+body {
+    display:flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header ul {
+    display:flex;
+    gap:16px;
+}
+.content-title {
+    display:flex;
+}
+
+.content-information {
+    display:flex;
+}
+
+.content-quote {
+    display:flex;
+    flex-direction: column;
+}
+
+.content-quote sub {
+    align-self: flex-end;
+}
+
+.content-signup {
+    display: flex;
+    align-self: center;
+}
+
+.card {
+    background-color: rgba(22, 138, 233, 0.733);
+    padding:16px;
+    margin: 32px;
+}
+
+.footer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
