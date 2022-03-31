@@ -5,10 +5,64 @@ body {
 
 a {
     text-decoration: none;
+    color
 }
 
 ul {
     list-style-type: none;
+}
+
+li img {
+    border: 6px solid aqua;
+    border-color: aqua;
+    border-radius: 25px;
+}
+
+.header, 
+.content-title,
+.footer {
+    background-color: #1f2937;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #f9faf8;
+}
+
+h3 {
+    font-size: 24px;
+    color: #f9faf8;
+}
+
+.content-title sub, 
+.header a {
+    font-size: 18px;
+    color: #e5e7eb;
+}
+
+button {
+    background-color: #3882f6;
+    border-radius: 6px;
+    border: 2px solid #e5e7eb;
+    color: #e5e7eb;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1f2937;
+}
+
+.content-quote p {
+    font-style: italic;
+    font-weight: 300;
+    color: #1f2937;   
+}
+
+.card {
+    color: #f9faf8;
+    font-weight: 500;
 }
 
 .header{
@@ -26,15 +80,30 @@ ul {
 
 .content-information {
     display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container li {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .content-quote {
+    width: 300px;
+    padding: 16px;
+    background-color: #e5e7eb;
     display:flex;
     flex-direction: column;
+    align-self: center;
 }
 
 .content-quote sub {
     align-self: flex-end;
+    font-weight: 900;
 }
 
 .content-signup {
@@ -44,6 +113,7 @@ ul {
 
 .card {
     background-color: rgba(22, 138, 233, 0.733);
+    border-radius: 25px;
     padding:16px;
     margin: 32px;
 }
@@ -52,4 +122,9 @@ ul {
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    display: flex;
+    flex: 0 1 250px;
 }
