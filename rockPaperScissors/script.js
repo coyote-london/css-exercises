@@ -1,8 +1,8 @@
 //Variables needed
+let choice = 0;
+let moves = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
-let choice = 0
-let moves = ['rock', 'paper', 'scissors'];
 let playerMove = '';
 let computerMove = '';
 const rockImage = document.createElement('img');
@@ -13,6 +13,9 @@ const scissorImage = document.createElement('img');
 scissorImage.src = 'scissors-aleksandar-zivkovic-unsplash.jpg'; 
 let textDisplay = document.getElementById('textDisplay');
 let scoreBoard = document.getElementById('scoreBoard');
+window.addEventListener('keydown', game);
+
+
 //Functions for getting moves
 
 
@@ -29,40 +32,6 @@ function computerInput() {
     }
 }
     
-function moveChoosen() {
-    
-    if (playerMove == computerMove) {
-        roundDraw(playerMove, computerMove);
-        console.log(playerMove);
-    }
-    else if (playerMove == 'rock') {
-        if (computerMove == 'paper') {
-            roundLost(playerMove, computerMove);
-        }
-        else if (computerMove == 'scissors') {
-            roundWon(playerMove, computerMove)
-        }
-    
-    }
-    else if (playerMove == 'paper') {
-        if (computerMove == 'scissors') {
-            roundLost(playerMove, computerMove);
-        }
-        else if (computerMove == 'rock') {
-            roundWon(playerMove, computerMove);
-        }
-    }
-    else if (playerMove == 'scissors') {
-        if (computerMove == 'rock') {
-            roundLost(playerMove, computerMove);
-        }
-        else if (computerMove == 'paper') {
-            roundWon(playerMove, computerMove);
-        }
-    }
-}
-
-
 function chooseMove(e) {
     scoreBoard.textContent = scoreBoard.textContent.replace(scoreBoard.textContent,
         'YOUR SCORE: ' + playerScore + ' COMPUTER\'S SCORE: ' + computerScore);   
@@ -115,16 +84,55 @@ function moveImageCarousel() {
     }
 }
 
+function moveChoosen() {
+    
+    if (playerMove == computerMove) {
+        roundDraw(playerMove, computerMove);
+        console.log(playerMove);
+    }
+    else if (playerMove == 'rock') {
+        if (computerMove == 'paper') {
+            roundLost(playerMove, computerMove);
+        }
+        else if (computerMove == 'scissors') {
+            roundWon(playerMove, computerMove)
+        }
+    
+    }
+    else if (playerMove == 'paper') {
+        if (computerMove == 'scissors') {
+            roundLost(playerMove, computerMove);
+        }
+        else if (computerMove == 'rock') {
+            roundWon(playerMove, computerMove);
+        }
+    }
+    else if (playerMove == 'scissors') {
+        if (computerMove == 'rock') {
+            roundLost(playerMove, computerMove);
+        }
+        else if (computerMove == 'paper') {
+            roundWon(playerMove, computerMove);
+        }
+    }
+}
 
 //Functions for tracking score
 
+function roundDraw(yourMove, theirMove) {
+    textDisplay.textContent = textDisplay.textContent.replace(textDisplay.textContent, 
+        'THIS ROUND IS A DRAW, YOU PLAYED ' + yourMove.toUpperCase() + ' WHILE THE COMPUTER PLAYED ' + 
+        theirMove.toUpperCase() + '!');
+}
 
 function roundWon(yourMove, theirMove) {
     playerScore = playerScore + 1;
     textDisplay.textContent = textDisplay.textContent.replace(textDisplay.textContent, 
-        'Round won! You played ' + yourMove + ' while the computer played ' + theirMove + '!');
+        'ROUND WON! YOU PLAYED ' + yourMove.toUpperCase() + ' WHILE THE COMPUTER PLAYED ' + theirMove.toUpperCase() + '!');
+    scoreBoard.textContent = scoreBoard.textContent.replace(scoreBoard.textContent,
+        'YOUR SCORE: ' + playerScore + '    COMPUTER\'S SCORE: ' + computerScore);
     if (playerScore > 3) {
-        textDisplay.textContent = textDisplay.textContent.replace(textDisplay.textContent, 'You won the whole game!')
+        textDisplay.textContent = textDisplay.textContent.replace(textDisplay.textContent, 'YOU WON THE WHOLE GAME!')
         reset();
     }
 }
@@ -132,37 +140,21 @@ function roundWon(yourMove, theirMove) {
 function roundLost(yourMove, theirMove) {
     computerScore = computerScore + 1;
     textDisplay.textContent = textDisplay.textContent.replace(textDisplay.textContent, 
-        'Round lost! You played ' + yourMove + ' while the computer played ' + theirMove + '!');
+        'ROUND LOST! YOU PLAYED ' + yourMove.toUpperCase() + ' WHILE THE COMPUTER PLAYED ' + theirMove.toUpperCase() + '!');
     scoreBoard.textContent = scoreBoard.textContent.replace(scoreBoard.textContent,
-        'Your Score: ' + playerScore + ' Computer\'s Score: ' + computerScore);   
+        'YOUR SCORE: ' + playerScore + '    COMPUTER\'S SCORE: ' + computerScore);   
     if (computerScore > 3) {
-        textDisplay.textContent = textDisplay.textContent.replace(textDisplay.textContent, 'The computer won the whole game!')
+        textDisplay.textContent = textDisplay.textContent.replace(textDisplay.textContent, 'THE COMPUTER WON THE WHOLE GAME!')
         reset();
     }
 }
 
-function roundDraw(yourMove, theirMove) {
-    textDisplay.textContent = textDisplay.textContent.replace(textDisplay.textContent, 
-        'This round is a draw! You played ' + yourMove + ' while the computer played ' + 
-        theirMove + '!');
-    console.log('This round is a draw! You played ' + yourMove + ' while the computer played ' + theirMove + '!');
-    console.log('Player has won ' + playerScore + ' rounds while the computer has won ' + computerScore);
-}
-
-//Functions for setting game states
-
-
-
 function reset() {
-    console.log('Score reset! Pick your move and shoot to play again!');
     playerScore = 0;
     computerScore = 0;
 }
  
 //Gameloop
-const showButton = document.querySelector('.buttonShow');
-window.addEventListener('keydown', game);
-
 
 
 function game() {
